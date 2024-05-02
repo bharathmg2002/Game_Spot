@@ -1,0 +1,22 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Game Details</title>
+    <!-- Add your CSS and other head elements here -->
+</head>
+<body>
+
+<%
+    // Retrieve the gameID parameter from the request
+    String gameID = request.getParameter("gameID");
+
+    // You can use the gameID to fetch information about the game from a database or some other source
+    // For simplicity, let's just display the gameID for now
+%>
+    <h1>Game Details for Game ID: <%= gameID %></h1>
+
+    <!-- Add more content to display detailed information about the selected game -->
+
+</body>
+</html>

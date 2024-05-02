@@ -1,0 +1,292 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>GAME SPOT</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1">
+    
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<link rel="stylesheet" href="css/templatemo_misc.css">
+	<link rel="stylesheet" href="css/templatemo_style.css">
+</head>
+<body>
+	<%
+    // Retrieve the gameID parameter from the request
+    String gameID = request.getParameter("gameID");
+
+    // You can use the gameID to fetch information about the game from a database or some other source
+    // For simplicity, let's just display the gameID for now
+    
+     // Default values for the case when gameID is not specified or is invalid
+        String gameName = "Unknown Game";
+        String requirements = "Requirements not available";
+        String description = "Description not available";
+
+        // Check if gameID is specified
+        if (gameID != null && !gameID.isEmpty()) {
+            // Use a switch statement or another logic to handle different game IDs
+            switch (gameID) {
+                case "1":
+                    gameName = "Game 1";
+                    requirements = "* OS: Windows 8.1 64-Bit, Windows 8 64-Bit, Windows 7 64-Bit Service Pack 1 \n * Processor: Intel® Core™ 2 Quad CPU Q6600 2.40 GHz (4 CPUs) or AMD Phenom 9850 Quad-Core Processor (4  &nbsp;&nbsp;&nbsp;CPUs) 2.5 GHz \n* RAM: 4GB \n* Video card: NVIDIA® 9800 GT (1GB), AMD HD 4870 (1GB) \n* DirectX: 10, 11 \n* Sound card: 100% DirectX 10 compatible \n* HDD space: 65GB";
+                    description = "GTA gameplay mixes third-person shooting, driving, and cinematic storytelling in detailed environments\n ranging from cityscapes to desert paths. The multiplayer component, GTA Online, has become massively popular,\n too, with its own missions and story beats.";
+                    break;
+                case "2":
+                    gameName = "Game 2";
+                    requirements = "* CPU: Intel(R) Core(TM)2 Duo CPU E7500\n* CPU SPEED: Info\n* RAM: 2 GB\n* VIDEO CARD: NVIDIA Geforce GT 220\n* DEDICATED VIDEO RAM: 512 MB\n* PIXEL SHADER: 4.1\n* VERTEX SHADER: 4.1\n* OS: Windows 7 SP1 or newer\n* FREE DISK SPACE: 4 GB\n* SOUND CARD: DirectX compatible";
+                    description = "Modern Combat 5: Blackout game is primarily a first person shooter, but missions include controlling turrets on \n boats, helicopters, and even drones.";
+                    break;
+                
+                case "3":
+                	gameName= "Game 3";
+                	requirements="OS*: Windows 10 64-bit (v.1709 or higher)\n* CPU: Intel Core i3-4340 or AMD FX-6300\n* RAM: 8GB RAM\n* HDD: 246GB HD space\n* Video: NVIDIA GeForce GTX 670 / GeForce GTX 1650 or Radeon HD 7950\n* DirectX: Requires DirectX 12 compatible system\n* Network: Broadband Internet connection\n* Sound Card: DirectX Compatible";
+                    description="The game simulates infantry and combined arms warfare of World War II using a modified version of the id Tech 3\n engine. Much of its theme and gameplay is similar to the Medal of Honor series; however, Call of Duty showcases\n multiple viewpoints staged in the American, British, and Soviet theaters of World War II.";	
+                	break;
+                case "4":
+                	gameName= "Game 4";
+                	requirements="CPU: Intel Core i3-3210 3.2 GHz / AMD A8-7600 APU 3.1 GHz or equivalent\nCPU SPEED: Info\nRAM: 2 GB\nVIDEO CARD: Integrated: Intel HD Graphics 4000 (Ivy Bridge) or AMD Radeon R5 series (Kaveri line) with OpenGL 4.41Discrete: Nvidia GeForce 400 Series or AMD Radeon HD 7000 series with OpenGL 4.4\nPIXEL SHADER: 5.0\nVERTEX SHADER: 5.0\nOS: Windows 7 and up\nFREE DISK SPACE: At least 1 GB for Game Core and Other Files";
+                    description="Minecraft is a game made up of blocks, creatures, and community. You can survive the night or build a work of art-\n the choice is all yours. But if the thought of exploring a vast new world all on your own feels overwhelming,\n then fear not!";	
+                	break;
+                	
+                case "5":
+                	gameName= "Game 5";
+                	requirements="CPU: Intel(R) Pentium(R) D Dual Core 3.4 GHz or AMD Athlon(TM) 64 x2 3800+\nRAM: 1 GB RAM for Windows XP, 2 GB RAM for Winodws Vista/7\nVIDEO CARD: 3D hardware accelerator card required - 100% DirectX(R) 9.0c-compliant 256 MB video card and drivers (NVIDIA(R) GeForce(R) 6600 GT 256 MB RAM and better chipsets / ATI Radeon(TM) 1600XT 256 MB RAM and better chipsets)\nTOTAL VIDEO RAM: 256 MB\nPIXEL SHADER: 3.0\nVERTEX SHADER: 3.0\nHARDWARE T&L: Yes\nDIRECTX VERSION: DirectX(R) 9.0c (Included)\nOS: Microsoft(R) Windows(R) XP / Vista(R) / 7\nFREE DISK SPACE: 14 GB of free hard drive space\nSOUND CARD: Yes\nDVD-ROM: 100% Windows - compatible 6x speed DVD-ROM drive (600 K/sec sustained transfer rate) and drivers";
+                    description="Blur (stylized as blur) or Blur Racerz is a 2010 vehicular combat arcade-style racing video game for Microsoft\n Windows, PlayStation 3 and Xbox 360. It was developed by Bizarre Creations, published by Activision in North\n America and Europe, and published in Japan by Square Enix.";	
+                	break; 
+                    
+                case "6":
+                	gameName= "Game 6";
+                	requirements="CPU: Core i3-3225 3.3 GHz\nRAM: 4 GB\nVIDEO CARD: Intel HD 4000\nOS: Windows 7/8/10 64-bit";
+                    description="Fortnite is a survival game where 100 players fight against each other in player versus player combat to be the last\n one standing. It is a fast-paced, action-packed game, not unlike The Hunger Games, where strategic thinking is a \nmust in order to survive.";	
+                	break;                
+                    		
+                case "7":
+                	gameName= "Game 7";
+                	requirements="CPU: Intel® Core™ i5 750 or higher (4 hardware CPU threads\nRAM: 8 GB\nVIDEO CARD: Video card must be 1 GB or more and should be a DirectX 11-compatible with support for Shader Model 5.0\nDEDICATED VIDEO RAM: 1 GB\nPIXEL SHADER: 5.0\nVERTEX SHADER: 5.0\nOS: Windows® 10\nFREE DISK SPACE: 85 GB";
+                    description="Counter-Strike 2 features major technical improvements over Global Offensive, including a move from the Source\n game engine to Source 2, improved graphics and new server architecture. In addition, many maps from Global \nOffensive were updated to use the features of Source 2, with some maps receiving complete overhauls.";	
+                	break;                
+                    		
+                case "8":
+                	gameName= "Game 8";
+                	requirements="CPU: Intel Core 2 Duo E8400 / AMD Athlon 200GE\nRAM: 4 GB\nVIDEO CARD: Intel HD 4000 / Radeon R5 200\nPIXEL SHADER: 3.0\nVERTEX SHADER: 3.0\nOS: Windows 7/8/10 64-bit";
+                    description="Valorant is an online multiplayer computer game, produced by Riot Games. It is a first-person shooter game,\n consisting of two teams of five, where one team attacks and the other defends. Players control characters known\n as 'agents', who all have different abilities to use during gameplay.";	
+                	break;    
+                    	
+                case "9":
+                	gameName= "Game 9";
+                	requirements="CPU: Core i7-6700 or Ryzen 5 1600\nRAM: 12 GB\nVIDEO CARD: GeForce GTX 1060 6GB or Radeon RX 580 8GB or Arc A380\nDEDICATED VIDEO RAM: 8 GB (6GB NVIDIA)\nPIXEL SHADER: 5.0\nVERTEX SHADER: 5.0\nOS: Windows 10 64-bit\nFREE DISK SPACE: 70 GB";
+                    description="Cyberpunk 2077 is an open-world, action-adventure RPG set in Night City, a megalopolis obsessed with power,\n glamour and body modification. Play as V, a cyberpunk mercenary, and take on the most powerful forces of the\n city in a fight for glory and survival.";	
+                	break;                
+                	
+                	
+                	
+                			
+                			
+                			
+                			
+                			
+                // Add more cases for other game IDs as needed
+                default:
+                    // Handle unknown game IDs
+                    gameName = "Unknown Game";
+                    requirements = "Requirements not available";
+                    description = "Description not available";
+                    break;
+            }
+        }
+%>
+    <%-- <h1>Game Details for Game ID: <%= gameID %></h1> --%>
+
+    <!-- Add more content to display detailed information about the selected game -->
+	<!-- This one in here is responsive menu for tablet and mobiles -->
+    <div class="responsive-navigation visible-sm visible-xs">
+        <a href="#" class="menu-toggle-btn">
+            <i class="fa fa-bars fa-2x"></i>
+        </a>
+       
+        <div class="navigation responsive-menu">
+            <ul>
+                <li class="home"><a href="index.jsp">Home</a></li>
+	            <li class="home"><a href="Registration.jsp">Register</a></li>
+	            <li class="home"><a href="login.jsp">Login</a></li>
+	            <li class="home"><a href="Cart.jsp">Cart</a></li>
+	            <li class="home"><a href="Contact.jsp" onClick="alertName()">Contact us</a></li>
+	          
+            </ul> <!-- /.main_menu -->
+        </div> <!-- /.responsive_menu -->
+    </div> <!-- /responsive_navigation -->
+
+	<div id="main-sidebar" class="hidden-xs hidden-sm">
+
+		<div class="logo"><a href="#">
+		  <h1>GAME SPOT</h1>
+		</a><br>
+		</div> <!-- /.logo -->
+
+		<div class="navigation">
+	        <ul class="main-menu">
+	            <li class="home"><a href="index.jsp" class="external">Home</a></li>
+	            <li class="home"><a href="Registration.jsp" class="external">Register</a></li>
+	            <li class="home"><a href="login.jsp" class="external">Login</a></li>
+	            <li class="home"><a href="Contact.jsp" class="external">Contact Us</a></li>
+        </ul>
+		</div> <!-- /.navigation -->
+
+	</div> <!-- /#main-sidebar -->
+
+	<div id="main-content">
+
+	  <div id="templatemo">
+			<div class="main-slider">
+				
+			<img src="images/slide<%=gameID %>.jpg" height = "400" width = "90%" style="margin:0 6%;">		
+				
+			</div>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="welcome-text">
+						  
+						</div>
+					</div>
+				</div>
+			</div>
+		</div> <!-- /#sTop -->
+
+		<div class="container-fluid">
+
+			<div id="about" class="section-content">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="section-title">
+							<h2><b>Description</b></h2>
+						
+						<%
+					            String[] descriptionLines = description.split("\\n");
+					            for (String descriptions : descriptionLines) {
+					        %>
+					            <h3 style="color:black;font-size:1.3em;"><b><%= descriptions %></b></h3>
+					        <%
+					            }
+					        %>
+					        </div>
+						
+						
+						<%-- </div class="require">
+                			<p><%= requirements %></p>
+            			</div> --%>
+						
+						
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="section-title">
+							<h2 ><b>Requirements</b></h2>
+							 <%-- Display each requirement in a separate row --%>
+					        <%
+					            String[] requirementLines = requirements.split("\\n");
+					            for (String requirement : requirementLines) {
+					        %>
+					            <h3 style="color:black;font-size:1.3em;"><b><%= requirement %></b></h3>
+					        <%
+					            }
+					        %>
+						</div>
+												<%-- </div>
+                			<p><%= description %></p>
+            			</div> --%>
+					</div>
+				</div> <!-- /.row -->			    <!-- /.row -->
+				<button style="margin:0 46%; padding:1% 4%;" onclick="navigateToPage()">BUY</button>
+			</div> <!-- /#about -->
+			
+		    <!-- /#services -->
+		    <!-- /#portfolio -->		    <!-- /#contact -->
+
+		</div> <!-- /.container-fluid -->
+
+		<div class="site-footer">
+			<div class="first-footer">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="social-footer">
+								<ul>
+									<li><a href="#" class="fa fa-facebook"></a></li>
+									<li><a href="#" class="fa fa-twitter"></a></li>
+									<li><a href="#" class="fa fa-dribbble"></a></li>
+									<li><a href="#" class="fa fa-linkedin"></a></li>
+									<li><a href="#" class="fa fa-rss"></a></li>
+								</ul>
+							</div> <!-- /.social-footer -->
+						</div> <!-- /.col-md-12 -->
+					</div> <!-- /.row -->
+				</div> <!-- /.container-fluid -->
+			</div> <!-- /.first-footer -->
+			<div class="bottom-footer">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-6">
+							<p class="copyright">Copyright © 2024 <a href="#">INTERNSHIP Project </a>
+                            </p>
+						</div> <!-- /.col-md-6 -->
+						<div class="col-md-6 credits">
+							
+						</div> <!-- /.col-md-6 -->
+					</div> <!-- /.row -->
+				</div> <!-- /.container-fluid -->
+			</div> <!-- /.bottom-footer -->
+		</div> <!-- /.site-footer -->
+
+	</div> <!-- /#main-content -->
+-->
+	<!-- JavaScripts -->
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/jquery.singlePageNav.js"></script>
+	<script src="js/jquery.flexslider.js"></script>
+	<script src="js/jquery.prettyPhoto.js"></script>
+	<script src="js/custom.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("a[data-gal^='prettyPhoto']").prettyPhoto({hook: 'data-gal'});
+		});
+
+        function initialize() {
+          var mapOptions = {
+            zoom: 13,
+            center: new google.maps.LatLng(40.7809919,-73.9665273)
+          };
+
+          var map = new google.maps.Map(document.getElementById('map-canvas'),
+              mapOptions);
+        }
+
+        function loadScript() {
+          var script = document.createElement('script');
+          script.type = 'text/javascript';
+          script.src = 'https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&' +
+              'callback=initialize';
+          document.body.appendChild(script);
+        }
+
+        window.onload = loadScript;
+    </script>
+    <script>
+    // JavaScript function to handle navigation
+    function navigateToPage() {
+        // Replace 'another-page.html' with the actual filename or URL of the page you want to navigate to
+    	var gameIdParameter = 'gameID=' + '<%= gameID %>';
+        window.location.href = 'Cart.jsp?' + gameIdParameter;
+    }
+</script>
+<!-- templatemo 394 sonic -->
+</body>
+</html>
